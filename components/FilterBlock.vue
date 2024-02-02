@@ -27,4 +27,7 @@ export default {
   border-right
   : 1px solid black;
 }
+.filter-block ul {
+  text-decoration: none;
+}
 </style>

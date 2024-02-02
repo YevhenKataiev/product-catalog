@@ -1,11 +1,11 @@
 <template>
   <div>
     <div class="title">
-      {{ product.name }}
+      {{ currentProduct.name }}
     </div>
     <div class="photo">
       <img
-        :src="product.imgURL"
+        :src="currentProduct.imgURL"
         alt="product img"
       >
     </div>
@@ -17,23 +17,22 @@
       </ul>
     </div>
     <div class="price">
-      Price ${{ product.price }}
+      Price ${{ currentProduct.price }}
     </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
-  props: {
-    product: {
-      type: Object,
-      default: () => {}
-    }
-  },
   computed: {
+    ...mapGetters('products', ['getProductById']),
+    currentProduct () {
+      return this.getProductById(this.$route.params.id)
+    },
     productDescription() {
       const pd = {}
-      for (const [key, value] of Object.entries(this.product)) {
+      for (const [key, value] of Object.entries(this.currentProduct)) {
         if (!['name', 'imgURL', 'price'].includes(key)) {
           pd[`${key}`] = value
         }

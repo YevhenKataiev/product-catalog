@@ -22,7 +22,7 @@ export const state = () => ({
       id: 2,
       name: 'product B',
       imgURL: 'url_3',
-      price: 10,
+      price: 11,
       height: 10,
       width: 20,
       available: false
@@ -31,7 +31,7 @@ export const state = () => ({
       id: 3,
       name: 'product C',
       imgURL: 'url_3',
-      price: 10,
+      price: 11,
       height: 10,
       width: 20,
       available: true
