@@ -4,7 +4,7 @@
       Category
     </div>
     <div class="filter-wrapper">
-      <select @change="updateFilter($event)">
+      <select v-model="selected" @change="updateFilter($event)">
         <option value="" key="all" selected>
           All
         </option>
@@ -20,8 +20,14 @@
 import { categoryList } from '@/utils'
 export default {
   data: () => ({
-    categoryList
+    categoryList,
+    selected: ''
   }),
+  created() {
+    if (this.$route.query.category) {
+      this.selected = this.$route.query.category
+    }
+  },
   methods: {
     updateFilter(e) {
       let query = { ...this.$route.query }

@@ -24,6 +24,13 @@ export default {
       bot: ''
     }
   }),
+  created() {
+    if (this.$route.query[this.type]) {
+      const stringType = this.$route.query[this.type].split('-')
+      this.filter.bot = stringType[0]
+      this.filter.top = stringType[1]
+    }
+  },
   watch: {
     filter: {
       deep: true,
