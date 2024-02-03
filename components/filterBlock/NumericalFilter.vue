@@ -4,8 +4,8 @@
       {{ type }}
     </h4>
     <div class="input-block">
-      <input type="number" name="low limit" v-model="filter.top" /> -
-      <input type="number" name="high limit" v-model="filter.bot" />
+      <input v-model="filter.bot" type="number" name="low limit" /> -
+      <input v-model="filter.top" type="number" name="high limit" />
     </div>
   </div>
 </template>
@@ -23,7 +23,27 @@ export default {
       top: '',
       bot: ''
     }
-  })
+  }),
+  watch: {
+    filter: {
+      deep: true,
+      handler: function(value) {
+        let query = this.$route.query
+        if (this.filter.top || this.filter.bot) {
+          query = {
+            ...query,
+            [`${this.type}`]: `${this.filter.bot}-${this.filter.top}`
+          }
+        } else {
+          delete query[`${this.type}`]
+        }
+        this.$router.push({
+          path: this.$route.path,
+          query
+        })
+      }
+    }
+  }
 }
 </script>
 

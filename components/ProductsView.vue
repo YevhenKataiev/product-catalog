@@ -13,8 +13,9 @@
 
 <script>
 import { mapState } from 'vuex'
-import { isEmpty, filter } from 'lodash'
+import { isEmpty, filter, isNaN } from 'lodash'
 import ProductCard from './ProductCard'
+import { integerOptionList } from '@/utils'
 
 export default {
   components: {
@@ -26,17 +27,38 @@ export default {
   computed: {
     ...mapState('products', ['productsList']),
     currentProductsList() {
-      return filter(this.productsList, { ...this.currentFilter })
+      const f = this.currentFilter
+      return filter(this.productsList, function(product) {
+        if (isEmpty(f)) { return true }
+        for (const key in f) {
+          if (integerOptionList.includes(key)) {
+            const range = f[key].split('-')
+            const bot = isNaN(parseInt(range[0])) ? 0 : parseInt(range[0])
+            const top = isNaN(parseInt(range[1])) ? Infinity : parseInt(range[1])
+            if (product[key] < bot || product[key] > top) { return false }
+          } else if (f[key] !== product[key]) {
+            return false
+          }
+        }
+        return true
+      })
     }
   },
   watch: {
     '$route.query'(value) {
       const query = this.$route.query
+      this.currentFilter = {}
       if (!isEmpty(query)) {
-        this.currentFilter = { ...this.currentFilter, ...query }
-      } else {
-        this.currentFilter = {}
+        for (const [key, value] of Object.entries(query)) {
+          this.currentFilter[key] = value
+        }
       }
+    }
+  },
+  created() {
+    const query = this.$route.query
+    if (!isEmpty(query)) {
+      this.currentFilter = { ...this.currentFilter, ...query }
     }
   }
 }
