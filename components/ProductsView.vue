@@ -13,14 +13,31 @@
 
 <script>
 import { mapState } from 'vuex'
+import { isEmpty, filter } from 'lodash'
+import ProductCard from './ProductCard'
 
 export default {
+  components: {
+    ProductCard
+  },
+  data: () => ({
+    currentFilter: {}
+  }),
   computed: {
     ...mapState('products', ['productsList']),
     currentProductsList() {
-      return this.productsList
+      return filter(this.productsList, { ...this.currentFilter })
     }
-  // ...mapGetters('products', ['getProductById'])
+  },
+  watch: {
+    '$route.query'(value) {
+      const query = this.$route.query
+      if (!isEmpty(query)) {
+        this.currentFilter = { ...this.currentFilter, ...query }
+      } else {
+        this.currentFilter = {}
+      }
+    }
   }
 }
 </script>

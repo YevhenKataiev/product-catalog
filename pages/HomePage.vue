@@ -8,7 +8,7 @@
 <script>
 // import { mapGetters, mapState } from 'vuex'
 import ProductsView from '@/components/ProductsView'
-import FilterBlock from '@/components/FilterBlock'
+import FilterBlock from '@/components/filterBlock/FilterBlock'
 
 export default {
   components: { ProductsView, FilterBlock }

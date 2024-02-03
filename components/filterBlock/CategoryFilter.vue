@@ -1,0 +1,47 @@
+<template>
+  <div>
+    <div class="filter-title">
+      Category
+    </div>
+    <div class="filter-wrapper">
+      <select @change="updateFilter($event)">
+        <option value="" key="all" selected>
+          All
+        </option>
+        <option v-for="cat in categoryList" :value="cat" :key="cat">
+          {{ cat }}
+        </option>
+      </select>
+    </div>
+  </div>
+</template>
+
+<script>
+import { categoryList } from '@/utils'
+export default {
+  data: () => ({
+    categoryList
+  }),
+  methods: {
+    updateFilter(e) {
+      let query = { ...this.$route.query }
+      if (e.target.value) {
+        query = {
+          ...query,
+          category: e.target.value
+        }
+      } else {
+        delete query.category
+      }
+      this.$router.push({
+        path: this.$route.path,
+        query
+      })
+    }
+  }
+}
+</script>
+
+<style>
+
+</style>
