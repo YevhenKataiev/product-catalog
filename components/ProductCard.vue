@@ -47,11 +47,22 @@ export default {
 <style scoped>
 .prod-card {
   min-width: 200px;
-  /* width: 90%; */
   min-height: 450px;
   margin: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
+}
+.title {
+  padding: 0.5em;
+  font: 1em sans-serif;
+  font-weight: 600;
+}
+.photo {
+  border: 1px solid black;
+  border-radius: 15px;
+  width: 250px;
+  height: 250px;
 }
 </style>
