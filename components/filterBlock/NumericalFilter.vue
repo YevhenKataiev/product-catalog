@@ -47,6 +47,10 @@ export default {
         this.$router.push({
           path: this.$route.path,
           query
+        }).catch((error) => {
+          if (error.name !== 'NavigationDuplicated') {
+            throw error
+          }
         })
       }
     }

@@ -30,6 +30,10 @@ export default {
             ...this.$route.query,
             [`${this.type}`]: value
           }
+        }).catch((error) => {
+          if (error.name !== 'NavigationDuplicated') {
+            throw error
+          }
         })
       }
     }
