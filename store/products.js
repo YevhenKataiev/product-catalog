@@ -54,34 +54,20 @@ export const state = () => ({
 })
 
 export const getters = {
-  // getProductsList: state => state.productsList,
   getProductById: state => (id) => {
     return state.productsList.find(elem => elem.id === id)
   }
-  // vacanciesByKey: (state) => (key) => {
-  //   return filter(state.vacanciesList[key.type], function(elem) {
-  //     if (key.location === 'All') {
-  //       return true;
-  //     } else {
-  //       return elem.location === key.location;
-  //     }
-  //   });
-  // },
 }
 
 export const actions = {
-  // async fetchVacanciesList({commit}) {
+  // async fetchProductsList({commit}) {
   //   const { data } = await axios.get('/api');
-  //   commit('setVacanciesList', data.vacanciesList);
-  //   commit('setVacanciesKeys', data.vacanciesKeys);
+  //   commit('setProductsList', data.productsList);
   // },
 }
 
 export const mutations = {
-  // setVacanciesList(state, list) {
-  //   state.vacanciesList = list;
-  // },
-  // setVacanciesKeys(state, keys) {
-  //   state.vacanciesKeys = keys;
+  // setProductsList(state, list) {
+  //   state.productsList = list;
   // },
 }
