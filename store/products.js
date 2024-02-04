@@ -39,6 +39,16 @@ export const state = () => ({
       height: 10,
       width: 20,
       available: true
+    },
+    {
+      id: 4,
+      name: 'product C1',
+      imgURL: 'url_3',
+      category: 'cat_3',
+      price: 11,
+      height: 20,
+      width: 20,
+      available: true
     }
   ]
 })
