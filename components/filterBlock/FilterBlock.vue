@@ -50,7 +50,7 @@ export default {
 .filter-block {
   display: flex;
   justify-content: flex-start;
-  border: 1px solid black;
+  border: 1px solid;
   border-radius: 15px;
   flex-direction: column;
   align-items: center;

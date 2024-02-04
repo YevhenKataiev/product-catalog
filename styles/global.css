@@ -2,9 +2,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  border-color: #40A2E3;
 }
 body {
-  background: #F1F1F1;
+  background: #FFF6E9;
+  color: #0D9276;
 }
 a {
   color: inherit;

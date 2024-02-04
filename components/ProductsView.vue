@@ -77,7 +77,7 @@ export default {
   padding: 0 0.5em;
 }
 .card-wrapper {
-  border: 1px black solid;
+  border: 1px solid;
   border-radius: 15px;
 }
 </style>

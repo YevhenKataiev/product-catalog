@@ -60,7 +60,7 @@ export default {
   font-weight: 600;
 }
 .photo {
-  border: 1px solid black;
+  border: 1px solid;
   border-radius: 15px;
   width: 250px;
   height: 250px;
