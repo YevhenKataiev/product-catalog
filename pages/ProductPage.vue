@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button @click="$router.back()">
+    <button class="back-btn" @click="$router.back()">
       Back
     </button>
     <product-detailed-card />
@@ -15,6 +15,17 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.back-btn {
+  background-color: #0D9276;
+  border: none;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  position: absolute;
+  font-size: 16px;
+  width: 100px;
+  color: #FFF6E9;
+  border-radius: 5px;
+}
 </style>
