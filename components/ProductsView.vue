@@ -3,6 +3,7 @@
     <div
       v-for="product in currentProductsList"
       :key="product.id"
+      class="card-wrapper"
     >
       <nuxt-link :to="{ name: 'product', params: { id: product.id } }">
         <product-card :product="product" />
@@ -71,8 +72,12 @@ export default {
 .ctlg-wrapper {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-column-gap: 10px;
-  grid-row-gap: 10px;
-  justify-items: center;
+  grid-column-gap: 0.5em;
+  grid-row-gap: 0.5em;
+  padding: 0 0.5em;
+}
+.card-wrapper {
+  border: 1px black solid;
+  border-radius: 15px;
 }
 </style>

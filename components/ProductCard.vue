@@ -46,10 +46,9 @@ export default {
 
 <style scoped>
 .prod-card {
-  min-width: 150px;
-  min-height: 150px;
-  border: 1px black solid;
-  border-radius: 5%;
+  min-width: 200px;
+  /* width: 90%; */
+  min-height: 450px;
   margin: auto;
   display: flex;
   flex-direction: column;
