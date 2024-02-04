@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="filter-container">
     <h4>
       {{ type }}
     </h4>
@@ -60,5 +60,8 @@ export default {
 }
 .input-block input {
   width: 70px;
+}
+.filter-container {
+  padding: 0.5em;
 }
 </style>

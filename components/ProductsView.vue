@@ -15,7 +15,7 @@
 import { mapState } from 'vuex'
 import { isEmpty, filter, isNaN } from 'lodash'
 import ProductCard from './ProductCard'
-import { integerOptionList } from '@/utils'
+import { integerOptionList, booleanOptionList } from '@/utils'
 
 export default {
   components: {
@@ -36,6 +36,9 @@ export default {
             const bot = isNaN(parseInt(range[0])) ? 0 : parseInt(range[0])
             const top = isNaN(parseInt(range[1])) ? Infinity : parseInt(range[1])
             if (product[key] < bot || product[key] > top) { return false }
+          } else if (booleanOptionList.includes(key)) {
+            const value = f[key] === 'true'
+            if (value !== product[key]) { return false }
           } else if (f[key] !== product[key]) {
             return false
           }

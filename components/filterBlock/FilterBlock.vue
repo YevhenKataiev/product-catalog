@@ -9,10 +9,12 @@
         <numerical-filter :type="item" />
       </div>
       <div v-for="item in booleanOptionList" :key="item">
-        <boolean-filter />
-        {{ item }}
+        <boolean-filter :type="item"/>
       </div>
     </div>
+    <button @click="clear()">
+      Clear filters
+    </button>
   </div>
 </template>
 
@@ -28,7 +30,15 @@ export default {
     categoryList,
     integerOptionList,
     booleanOptionList
-  })
+  }),
+  methods: {
+    clear() {
+      this.$router.push({
+        path: this.$route.path,
+        query: {}
+      })
+    }
+  }
 }
 </script>
 

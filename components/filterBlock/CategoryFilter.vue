@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="filter-container">
     <div class="filter-title">
       Category
     </div>
@@ -48,6 +48,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.filter-container {
+  padding: 0.5em;
+}
 </style>
