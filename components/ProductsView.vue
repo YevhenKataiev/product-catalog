@@ -79,5 +79,6 @@ export default {
 .card-wrapper {
   border: 1px solid;
   border-radius: 15px;
+  height: 49vh;
 }
 </style>

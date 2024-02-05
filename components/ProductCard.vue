@@ -60,9 +60,19 @@ export default {
   font-weight: 600;
 }
 .photo {
+  display: block;
   border: 1px solid;
   border-radius: 15px;
   width: 250px;
   height: 250px;
+  overflow: hidden;
+}
+img {
+  display: block;
+  object-fit: contain;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
 }
 </style>

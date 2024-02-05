@@ -3,7 +3,7 @@ export const state = () => ({
     {
       id: 0,
       name: 'product A',
-      imgURL: 'url_1',
+      imgURL: 'https://i.redd.it/ouodm9z9ycp51.png',
       category: 'cat_1',
       price: 10,
       height: 10,

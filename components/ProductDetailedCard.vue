@@ -73,6 +73,16 @@ export default {
   border-radius: 15px;
   width: 500px;
   height: 500px;
+  overflow: hidden;
+  display: block;
+}
+img {
+  display: block;
+  object-fit: contain;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
 }
 .price {
   font-size: 26px;
