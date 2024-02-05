@@ -32,7 +32,7 @@ export default {
   computed: {
     ...mapGetters('products', ['getProductById']),
     currentProduct () {
-      return this.getProductById(this.$route.params.id)
+      return this.getProductById(parseInt(this.$route.params.id))
     },
     productDescription() {
       const pd = {}
