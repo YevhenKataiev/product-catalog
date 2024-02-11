@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 import { isEmpty, filter, isNaN } from 'lodash'
 import ProductCard from './ProductCard'
 import { integerOptionList, booleanOptionList } from '@/utils'
@@ -59,11 +59,15 @@ export default {
       }
     }
   },
-  created() {
+  async created() {
+    await this.fetchProductsList()
     const query = this.$route.query
     if (!isEmpty(query)) {
       this.currentFilter = { ...this.currentFilter, ...query }
     }
+  },
+  methods: {
+    ...mapActions('products', ['fetchProductsList'])
   }
 }
 </script>

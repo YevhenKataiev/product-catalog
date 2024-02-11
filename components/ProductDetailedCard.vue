@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" v-if="show">
     <div class="main">
       <div class="title">
         {{ currentProduct.name }}
@@ -27,7 +27,8 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
+import { isEmpty } from 'lodash'
 export default {
   computed: {
     ...mapGetters('products', ['getProductById']),
@@ -42,7 +43,18 @@ export default {
         }
       }
       return pd
+    },
+    show() {
+      return !isEmpty(this.currentProduct)
     }
+  },
+  async created() {
+    if (!this.show) {
+      await this.fetchProductById(parseInt(this.$route.params.id))
+    }
+  },
+  methods: {
+    ...mapActions('products', ['fetchProductById'])
   }
 }
 </script>
